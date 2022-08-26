@@ -1,22 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [age, setAge] = useState(0);
+
+
+  function calculateAge(e) {
+    var today = new Date();
+    var birthDate = new Date(e.target.value);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    setAge(age);
+    return;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <input type="date" onChange={calculateAge} /> - <span>{age}</span>
       </header>
     </div>
   );
