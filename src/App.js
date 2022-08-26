@@ -9,7 +9,7 @@ function App() {
   function calculateAge(e) {
     var today = new Date();
     var birthDate = new Date(e.target.value);
-    var age = today.getFullYear() - birthDate.getFullYear();
+    var age = today.getFullYear() - birthDate.getFullYear() || 0; // If non computable just give 0.
     setAge(age);
     return;
   }
